@@ -58,6 +58,6 @@ addMenu.appendChild(menuFull);
 const menuButton = document.querySelector(".menu-button");
 const menuContainer = document.querySelector(".menu");
 menuButton.addEventListener("click", (e) => {
-  if
+  // if(menuContainer.classList.contains("menu-open") && ())
   menuContainer.classList.toggle("menu--open");
 });
