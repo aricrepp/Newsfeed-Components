@@ -111,4 +111,64 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
+  createElement
+
+  appendChild
+
+  classList
+
+  textContent
+
 */
+
+function articleComponent(titleData, dateData, firstP, secondP, thirdP){
+  const article = document.createElement("div");
+  article.classList.add("article");
+  
+  const title = document.createElement("h2");
+  title.classList.add("title");
+  title.textContent = titleData;
+  article.appendChild(title);
+  
+  const date = document.createElement("p");
+  date.classList.add("date");
+  date.textContent = dateData;
+  article.appendChild(date);
+
+  const firstPara = document.createElement("p");
+  firstPara.textContent = firstP;
+  article.appendChild(firstPara);
+
+  const secondPara = document.createElement("p");
+  secondPara.textContent = secondP;
+  article.appendChild(secondPara);
+
+  const thirdPara = document.createElement("p");
+  thirdPara.textContent = thirdP;
+  article.appendChild(thirdPara);
+  
+  const expBtn = document.createElement("span");
+  expBtn.classList.add("expandButton");
+  expBtn.textContent = "expand";
+  article.appendChild(expBtn);
+
+
+
+  return article;
+}
+
+
+const articlesContainer = document.querySelector(".articles");
+
+data.forEach((obj) => {
+  let articleComp = articleComponent(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph);
+  articlesContainer.appendChild(articleComp);
+});
+
+const btn = document.querySelector(".expandButton");
+const art = document.querySelectorAll(".article");
+art.forEach((obj) => {
+  obj.addEventListener("click", (e) =>{
+    obj.classList.toggle("article-open");
+  });
+});
